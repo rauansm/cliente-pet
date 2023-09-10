@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class ClientePetApplication {
-@GetMapping
+    @GetMapping
     public String getHomeTeste() {
         return "Cliete - Pet - API - Home";
     }
