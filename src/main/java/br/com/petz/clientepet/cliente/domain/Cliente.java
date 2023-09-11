@@ -2,22 +2,18 @@ package br.com.petz.clientepet.cliente.domain;
 
 
 import br.com.petz.clientepet.cliente.application.api.ClienteRequest;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UUID;
 import org.hibernate.validator.constraints.br.CPF;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
