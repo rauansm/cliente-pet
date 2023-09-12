@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Repository
 @Log4j2
@@ -30,5 +32,13 @@ public class ClienteInfraRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
 		log.info("[finaliza] ClienteInfraRepository - buscaTodosClientes");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClientePeloId(UUID idCliente) {
+		log.info("[inicia] ClienteInfraRepository - buscaClientePeloId");
+		Optional<Cliente> cliente = clienteSpringDataJPARepository.findById(idCliente);
+		log.info("[finaliza] ClienteInfraRepository - buscaClientePeloId");
+		return cliente.orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
 	}
 }
