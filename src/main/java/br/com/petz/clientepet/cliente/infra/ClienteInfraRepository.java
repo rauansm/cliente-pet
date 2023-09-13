@@ -1,5 +1,7 @@
 package br.com.petz.clientepet.cliente.infra;
 
+import br.com.petz.clientepet.handler.APIException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.petz.clientepet.cliente.application.repository.ClienteRepository;
@@ -39,6 +41,6 @@ public class ClienteInfraRepository implements ClienteRepository {
 		log.info("[inicia] ClienteInfraRepository - buscaClientePeloId");
 		Optional<Cliente> cliente = clienteSpringDataJPARepository.findById(idCliente);
 		log.info("[finaliza] ClienteInfraRepository - buscaClientePeloId");
-		return cliente.orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
+		return cliente.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
 	}
 }
