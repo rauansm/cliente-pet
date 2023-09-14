@@ -13,6 +13,7 @@ import java.time.LocalDate;
 public class PetRequest {
     @NotBlank
     private String nomePet;
+    @NotNull
     private Porte porte;
     private String microchip;
     @NotNull
