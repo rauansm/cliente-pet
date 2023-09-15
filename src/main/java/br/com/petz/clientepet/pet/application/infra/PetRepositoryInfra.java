@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.UUID;
+
 @Repository
 @Log4j2
 @RequiredArgsConstructor
@@ -18,5 +21,13 @@ public class PetRepositoryInfra implements PetRepository {
         petSpringData.save(pet);
         log.info("[finaliza] PetRepositoryInfra - salvaPet");
         return pet;
+    }
+
+    @Override
+    public List<Pet> listaTodosPet(UUID idCliente) {
+        log.info("[inicia] PetRepositoryInfra - listaTodosPet");
+        var pets = petSpringData.findByIdClienteTutor(idCliente);
+        log.info("[finaliza] PetRepositoryInfra - listaTodosPet");
+        return pets;
     }
 }
