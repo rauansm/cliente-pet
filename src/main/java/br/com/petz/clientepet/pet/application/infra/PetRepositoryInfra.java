@@ -48,4 +48,6 @@ public class PetRepositoryInfra implements PetRepository {
         petSpringData.delete(pet);
         log.info("[finaliza] PetRepositoryInfra - deletaPet");
     }
+
+
 }
