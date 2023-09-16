@@ -1,5 +1,6 @@
 package br.com.petz.clientepet.pet.application.service;
 
+import br.com.petz.clientepet.pet.application.api.PetDetalhadoResponse;
 import br.com.petz.clientepet.pet.application.api.PetListResponse;
 import br.com.petz.clientepet.pet.application.api.PetRequest;
 import br.com.petz.clientepet.pet.application.api.PetResponse;
@@ -12,4 +13,8 @@ public interface PetService {
     PetResponse criaPet(UUID idCliente, PetRequest petRequest);
 
     List<PetListResponse> buscaPetsDoClienteComId(UUID idCliente);
+
+    PetDetalhadoResponse buscaPetDoCliente(UUID idCliente, UUID idPet);
+
+    void deletaPetDoCliente(UUID idCliente, UUID idPet);
 }

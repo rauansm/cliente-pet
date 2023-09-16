@@ -8,4 +8,6 @@ import java.util.UUID;
 
 public interface PetSpringData extends JpaRepository<Pet, UUID> {
     List<Pet> findByIdClienteTutor(UUID idClienteTutor);
+
+
 }
